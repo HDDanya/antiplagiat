@@ -9,15 +9,23 @@ export const UploadFiles = () => {
   const [pdf, setPdf] = React.useState<FileList | null>(null);
   const [doc, setDoc] = React.useState<FileList | null>(null);
   const [uploadFiles] = useUploadFilesMutation();
+
   const handleSubmit = async () => {
-    await uploadFiles({ pdf_file: pdf, word_file: doc });
     try {
+      const formData = new FormData();
+      if (pdf && doc) {
+        console.log(pdf[0]);
+        console.log(doc[0]);
+        formData.append('pdf_file', pdf[0]);
+        formData.append('word_file', doc[0]);
+        const files = await uploadFiles(formData).unwrap();
+        console.log(files);
+      }
     } catch (error) {
       console.log(error);
     }
   };
-  console.log(doc);
-  console.log(pdf);
+
   return (
     <Box
       sx={{
