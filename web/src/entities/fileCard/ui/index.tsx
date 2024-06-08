@@ -12,7 +12,7 @@ export const FileCard = (props: { buttons: React.ReactNode }) => {
 
   return (
     <Card sx={{ maxWidth: 345, margin: '0 auto', marginTop: '10rem' }}>
-      <CardMedia sx={{ height: 300 }} image={botLogo} title="green iguana" />
+      <CardMedia sx={{ height: 300 }} image={botLogo} title="Logo" />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           Антиплагиат

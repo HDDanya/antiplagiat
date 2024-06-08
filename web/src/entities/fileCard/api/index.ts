@@ -1,15 +1,15 @@
 import { apiSlice } from 'shared/api';
 import { UploadFiles } from 'shared/types';
-export const bookApiSlice = apiSlice.injectEndpoints({
+export const fileApiSlice = apiSlice.injectEndpoints({
   endpoints: (build) => ({
-    uploadFiles: build.mutation<UploadFiles, object>({
-      query: (files) => ({
+    uploadFiles: build.mutation<UploadFiles, FormData>({
+      query: (formData) => ({
         url: '/upload',
         method: 'POST',
-        body: { ...files },
+        body: formData,
       }),
       invalidatesTags: ['Files'],
     }),
   }),
 });
-export const { useUploadFilesMutation } = bookApiSlice;
+export const { useUploadFilesMutation } = fileApiSlice;
