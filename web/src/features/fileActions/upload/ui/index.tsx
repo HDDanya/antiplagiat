@@ -45,7 +45,6 @@ export const UploadFiles = () => {
         flexDirection: 'column',
         gap: '0.5rem',
       }}>
-      {errMsg && <ErrorAlert setErrMsg={setErrMsg} messege={errMsg} />}
       <UploadButton
         key={1}
         acceptableFile=".pdf"
@@ -73,6 +72,7 @@ export const UploadFiles = () => {
         variant="contained">
         {isLoading ? <LoadingSpinner /> : 'Отправить'}
       </Button>
+      {errMsg && <ErrorAlert setErrMsg={setErrMsg} messege={errMsg} />}
     </Box>
   );
 };

@@ -10,10 +10,11 @@ export const ErrorAlert = (props: {
       sx={{
         position: 'absolute',
         top: '20px',
+        left: 'calc((100vw - 345px) / 2 - 1px )',
       }}>
       <Slide direction="down" in={true} mountOnEnter unmountOnExit>
         <Alert
-          sx={{ width: '300px' }}
+          sx={{ width: '345px' }}
           severity="error"
           onClose={() => {
             props.setErrMsg('');
